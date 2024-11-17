@@ -1,5 +1,5 @@
-import 'package:fit_app/application/components/registerPage.component.dart';
-import 'package:fit_app/application/components/schedulerPage.component.dart';
+import 'package:fit_app/application/components/pages/register/registerPage.component.dart';
+import 'package:fit_app/application/components/pages/scheduler/schedulerPage.component.dart';
 import 'package:fit_app/application/infra/@providers/User.provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -75,6 +75,7 @@ class LandingPageState extends State<LandingPage> {
 
                     bool userIsValid =
                         userProvider.validateUser(userCode, password);
+                    userProvider.activeUser?.isAuthenticated = true;
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(

@@ -26,6 +26,11 @@ class UserProvider with ChangeNotifier {
       }
   }
 
+  void logout(){
+    activeUser?.isAuthenticated = false;
+    notifyListeners();
+  }
+
   bool validateUser(String userCode, String password) {
     try {
       final User user = _usersList.firstWhere(

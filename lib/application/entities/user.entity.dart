@@ -6,7 +6,8 @@ class User {
   String _name;
   String _email;
   String _contact;
-  List<Schedule> _schedules;
+  final List<Schedule> _schedules;
+  bool _isAuthenticated;
 
   User(
     this._code,
@@ -15,10 +16,12 @@ class User {
     String email = '',
     String contact = '',
     List<Schedule>? schedules,
+    bool isAuthenticated = false,
   })  : _name = name,
         _email = email,
         _contact = contact,
-        _schedules = schedules ?? [];
+        _schedules = schedules ?? [],
+        _isAuthenticated = isAuthenticated;
 
   String get code => _code;
   String get password => _password;
@@ -26,14 +29,43 @@ class User {
   String get email => _email;
   String get contact => _contact;
   List<Schedule> get schedules => _schedules;
+  bool get isAuthenticated => _isAuthenticated;
 
   set code(String value) => _code = value;
   set password(String value) => _password = value;
   set name(String value) => _name = value;
   set email(String value) => _email = value;
   set contact(String value) => _contact = value;
+  set isAuthenticated(bool value) => _isAuthenticated = value;
 
   String text() {
     return 'Nome: $_name, Email: $_email, Código: $_code, Senha: $_password';
+  }
+}
+
+class Trainer extends User {
+  List<User> _clients;
+
+  Trainer(
+    super.code,
+    super.password, {
+    super.name,
+    super.email,
+    super.contact,
+    super.schedules,
+    super.isAuthenticated,
+    List<User>? clients,
+  })  : _clients = clients ?? [];
+
+  List<User> get clients => _clients;
+
+  set clients(List<User> value) => _clients = value;
+
+  void addClient(User client) {
+    _clients.add(client);
+  }
+
+  void removeClient(User client) {
+    _clients.remove(client);
   }
 }

@@ -1,3 +1,5 @@
+import 'package:fit_app/application/components/widgets/defaultAppBar.widget.dart';
+import 'package:fit_app/application/components/widgets/footer.widget.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatefulWidget {
@@ -11,9 +13,7 @@ class SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Pesquisa'),
-      ),
+      appBar: const DefaultAppBar('Pesquisa'),
       body: const Center(
         child: Text(
           'Em Desenvolvimento',
@@ -24,6 +24,7 @@ class SearchPageState extends State<SearchPage> {
           ),
         ),
       ),
+      bottomNavigationBar: FooterWidget(selectedIndex: 4),
     );
   }
 }
