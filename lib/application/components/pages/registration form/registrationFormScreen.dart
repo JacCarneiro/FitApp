@@ -61,7 +61,7 @@ class _UserSearchPageState extends State<UserSearchPage> {
   Widget build(BuildContext context) {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
     return Scaffold(
-      appBar: const DefaultAppBar('Ficha de Cadastro'),
+      appBar: const DefaultAppBar('Ficha de Cadastro de Treino'),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

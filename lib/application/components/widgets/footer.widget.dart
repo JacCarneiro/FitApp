@@ -61,8 +61,8 @@ class _FooterWidgetState extends State<FooterWidget> {
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.app_registration),
-          label: 'Ficha de Cadastro',
+          icon: Icon(Icons.edit_document),
+          label: 'Cadastro de Treino',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.app_registration),
