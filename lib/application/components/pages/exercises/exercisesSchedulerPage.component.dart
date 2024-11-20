@@ -245,7 +245,7 @@ class ExerciseSchedulerPageState extends State<ExerciseSchedulerPage> {
           ),
         ),
       ),
-      bottomNavigationBar: FooterWidget(selectedIndex: 2),
+      bottomNavigationBar: FooterWidget(selectedIndex: 3),
     );
   }
 }

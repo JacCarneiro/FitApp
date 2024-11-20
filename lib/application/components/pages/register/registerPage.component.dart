@@ -180,7 +180,7 @@ class RegisterPageState extends State<RegisterPage> {
         ),
       ),
       bottomNavigationBar: (activeUser?.isAuthenticated ?? false)
-          ? FooterWidget(selectedIndex: 1)
+          ? FooterWidget(selectedIndex: 2)
           : const SizedBox.shrink(),
     );
   }

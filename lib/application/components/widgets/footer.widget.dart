@@ -5,6 +5,8 @@ import 'package:fit_app/application/components/pages/scheduler/schedulerPage.com
 import 'package:fit_app/application/components/pages/search/searchPage.component.dart';
 import 'package:flutter/material.dart';
 
+import '../pages/registration form/registrationFormScreen.dart';
+
 class FooterWidget extends StatefulWidget {
   int selectedIndex;
   FooterWidget({super.key, this.selectedIndex = 0});
@@ -18,6 +20,7 @@ class _FooterWidgetState extends State<FooterWidget> {
 
   final List<Widget> _pages = [
     const HomePage(),
+    const UserSearchPage(),
     const RegisterPage(),
     const ExerciseSchedulerPage(),
     const SchedulerPage(),
@@ -56,6 +59,10 @@ class _FooterWidgetState extends State<FooterWidget> {
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.app_registration),
+          label: 'Ficha de Cadastro',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.app_registration),

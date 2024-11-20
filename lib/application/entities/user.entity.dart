@@ -12,12 +12,14 @@ class User {
   User(
     this._code,
     this._password, {
+    
     String name = '',
     String email = '',
     String contact = '',
     List<Schedule>? schedules,
     bool isAuthenticated = false,
-  })  : _name = name,
+  })  : 
+        _name = name,
         _email = email,
         _contact = contact,
         _schedules = schedules ?? [],
@@ -48,8 +50,8 @@ class Trainer extends User {
 
   Trainer(
     super.code,
-    super.password, {
-    super.name,
+    super.password, 
+    {super.name,
     super.email,
     super.contact,
     super.schedules,
