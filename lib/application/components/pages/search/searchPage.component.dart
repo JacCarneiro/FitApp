@@ -36,14 +36,12 @@ class _UserSearchPageState extends State<SearchPage> {
 
     if (query.isNotEmpty) {
       setState(() {
-        // Filtra os usuários apenas se houver texto no campo de pesquisa
         filteredUsers = userProvider.usersList.where((user) {
           return user.name.toLowerCase().contains(query) ||
               user.email.toLowerCase().contains(query);
         }).toList();
       });
     } else {
-      // Se o campo de pesquisa estiver vazio, não há usuários para mostrar
       setState(() {
         filteredUsers = [];
       });
@@ -55,38 +53,29 @@ class _UserSearchPageState extends State<SearchPage> {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
 
     return Scaffold(
-      appBar: const DefaultAppBar('Pesquisa'),
+      appBar: const DefaultAppBar('Pesquisa de Usuários Cadastrados'),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Row(
-              children: [
-                // Campo de texto
-                Expanded(
-                  child: TextField(
-                    controller: _searchController,
-                    decoration: const InputDecoration(
-                      labelText: 'Pesquisar por nome',
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 8), // Espaçamento entre o campo e o ícone
-
-                // Ícone fora do TextField
-                IconButton(
+            // Campo de texto com ícone interno
+            TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                labelText: 'Pesquisar por nome',
+                border: const OutlineInputBorder(),
+                prefixIcon: IconButton(
                   icon: const Icon(Icons.search),
                   onPressed: () {
-                    // Ação ao clicar no ícone
                     _filterUsers();
                     print("Pesquisar clicado!");
                   },
                 ),
-              ],
+              ),
             ),
             const SizedBox(height: 16),
+
             // Exibe a lista de usuários apenas se houver resultados da pesquisa
             filteredUsers.isEmpty
                 ? const Center(
@@ -106,7 +95,7 @@ class _UserSearchPageState extends State<SearchPage> {
                           trailing: IconButton(
                             icon: const Icon(Icons.check),
                             onPressed: () {
-                              // Ação ao selecionar o usuário (ex: navegação ou exibir detalhes)
+                              // Ação ao selecionar o usuário
                               showDialog(
                                 context: context,
                                 builder: (context) => AlertDialog(
